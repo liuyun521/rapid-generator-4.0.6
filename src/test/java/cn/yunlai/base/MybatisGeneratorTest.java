@@ -22,15 +22,7 @@ public class MybatisGeneratorTest {
 	 */
 	@Test
 	public void generateSingleTable() throws Exception {
-		GeneratorMain.generateSingleTable("point_log");
+		GeneratorMain.generateSingleTable("tbl_org");
 	}
 
-	/*
-	 * 如果需要批量生成表，请执行此方法
-	 */
-	@Test
-	public void generateMultiTable() throws Exception {
-		GeneratorMain.generateMultiTable("point_log");
-	}
-	
 }

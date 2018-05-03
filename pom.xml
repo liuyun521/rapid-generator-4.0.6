@@ -21,6 +21,19 @@
     		<artifactId>rapid-generator</artifactId>
     		<version>4.0.6</version>
 		</dependency>
+		<!-- 代码生成器扩展包
+        <dependency>  
+            <groupId>com.googlecode.rapid-framework</groupId>  
+            <artifactId>rapid-generator-ext</artifactId>  
+            <version>4.0.5</version>  
+        </dependency>  
+   -->  
+        <!-- 代码生成器模板,模板根目录通过 classpath:generator/template/rapid 可以引用 
+        <dependency>  
+            <groupId>com.googlecode.rapid-framework</groupId>  
+            <artifactId>rapid-generator-template</artifactId>  
+            <version>4.0.5</version>  
+        </dependency>   --> 
 		<dependency>
         	<groupId>junit</groupId>
         	<artifactId>junit</artifactId>

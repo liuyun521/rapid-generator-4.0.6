@@ -1,7 +1,5 @@
-/*
- * Powered By [rapid-framework]
- * Web Site: http://www.rapid-framework.org.cn
- * Google Code: http://code.google.com/p/rapid-framework/
- * Since 2008 <#if now??>- ${now?string('yyyy')}</#if>
+/**
+ * @author 作者： ${author}
+ * @date 日期： <#if now??>- ${now?string('yyyy年MM月dd日')}</#if>
  */
-
+ 

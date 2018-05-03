@@ -1,6 +1,5 @@
 /**
- * @author ${author}
- * @version 1.0
- * @since 1.0
+ * @author 作者： ${author}
+ * @date 日期： <#if now??>- ${now?string('yyyy年MM月dd日')}</#if>
  */
 
