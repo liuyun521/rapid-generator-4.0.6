@@ -4,8 +4,6 @@
 <#assign classNameLower = className?uncap_first> 
 package ${basepackage}.core.biz.system;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,12 +17,10 @@ import ${basepackage}.domain.service.system.${className}Service;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 <@classComment value="service实现接口"/>
-@Component("${classNameLower}")
+@Component("${classNameLower}Service")
 @Service
-@Slf4j
 public class ${className}ServiceImpl extends AbstractBaseServiceImpl<${className}VO, ${className}Param> implements ${className}Service {
 	
 	@Getter

@@ -7,10 +7,10 @@ import org.springframework.stereotype.Repository;
 import ${basepackage}.core.dao.AbstractBaseDao;
 
 import ${basepackage}.domain.model.system.${className}VO;
-import ${basepackage}.domain.params.system.dao.${className}Param;
+import ${basepackage}.domain.params.system.${className}Param;
 
 <@classComment value="Mapper映射文件"/>
 @Repository
-public interface ${className}Dao extends AbstractBaseDao<${className}VO, ${className}Param>
+public interface ${className}Dao extends AbstractBaseDao<${className}VO, ${className}Param>{
 
 }

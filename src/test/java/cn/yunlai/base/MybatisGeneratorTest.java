@@ -22,7 +22,7 @@ public class MybatisGeneratorTest {
 	 */
 	@Test
 	public void generateSingleTable() throws Exception {
-		GeneratorMain.generateSingleTable("tbl_org");
+		GeneratorMain.generateAllTable();
 	}
 
 }

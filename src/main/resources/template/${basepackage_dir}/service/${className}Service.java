@@ -4,8 +4,6 @@
 <#assign remarks = table.remarks>
 package ${basepackage}.domain.service.system;
 
-import java.util.List;
-
 import ${basepackage}.domain.model.system.${className}VO;
 import ${basepackage}.domain.params.system.${className}Param;
 import ${basepackage}.domain.service.AbstractBaseService;

@@ -17,4 +17,11 @@ public class GeneratorMain {
 		g.getGenerator().setTemplateRootDir("classpath:template");
 		g.generateByTable(tableNames);
 	}
+
+	public static void generateAllTable() throws Exception {
+		GeneratorFacade g = new GeneratorFacade();
+		g.deleteOutRootDir();
+		g.getGenerator().setTemplateRootDir("classpath:template");
+		g.generateByAllTable();
+	}
 }

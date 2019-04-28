@@ -3,8 +3,7 @@
 <#assign classNameLower = className?uncap_first> 
 package ${basepackage}.domain.params.system;
 
-import javax.validation.constraints.Pattern;
-
+import java.util.Date;
 import ${basepackage}.domain.params.AbstractBaseParam;
 
 import io.swagger.annotations.ApiModel;
@@ -20,7 +19,7 @@ import lombok.Setter;
 public class ${className}Param extends AbstractBaseParam{
 	
 	<#list table.notPkColumns as column>
-	<#if column.columnNameLower!='createId'&&column.columnNameLower!='createDate'&&column.columnNameLower!='createDate'&&column.columnNameLower!='deleteFlat'&&column.columnNameLower!='orderNum'>
+	<#if column.columnNameLower!='createId'&&column.columnNameLower!='createDate'&&column.columnNameLower!='createDate'&&column.columnNameLower!='updateId'&&column.columnNameLower!='updateDate'&&column.columnNameLower!='deleteFlat'&&column.columnNameLower!='orderNum'>
 	/**
 	* ${column.columnNameLower}
 	**/

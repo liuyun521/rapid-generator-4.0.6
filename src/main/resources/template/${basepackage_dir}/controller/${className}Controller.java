@@ -4,6 +4,8 @@
 <#assign classNameLower = className?uncap_first> 
 package ${basepackage}.web.controller.system;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -36,7 +38,6 @@ import lombok.extern.slf4j.Slf4j;
 @Api(tags = "")
 @RestController
 @RequestMapping(value = "")
-@Slf4j
 @Validated
 @SuppressWarnings({ "rawtypes" })
 public class ${className}Controller extends AbstractBaseController {
@@ -55,7 +56,7 @@ public class ${className}Controller extends AbstractBaseController {
 	@ApiOperation(value = "01.根据唯一id获取实体对象", httpMethod = "GET")
 	@ResponseBody
 	public Result get${className}ById(Long id) {
-		RegionVO vo = ${classNameLower}Service.getById(id);
+		${className}VO vo = ${classNameLower}Service.getById(id);
 		return Result.success(vo);
 	}
 	
@@ -70,11 +71,11 @@ public class ${className}Controller extends AbstractBaseController {
 	 * @author 作者： liuyun
 	 * @date 日期： 2019年4月24日
 	 */
-	@PostMapping(value = "/find{className}PageByParam", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/find${className}PageByParam", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ApiOperation(value = "02.根据查询参数获取所有数据", httpMethod = "POST")
 	@ResponseBody
-	public Result find{className}PageByParam(${className}Param param){
-		Pages<${className}VO> result=${classNameLower}Service.findPageByParam(param,, param.getPageIndex(), param.getPageSize());
+	public Result find${className}PageByParam(${className}Param param){
+		Pages<${className}VO> result=${classNameLower}Service.findPageByParam(param, param.getPageIndex(), param.getPageSize());
 		return Result.success(result);
 	}
 	
@@ -84,10 +85,10 @@ public class ${className}Controller extends AbstractBaseController {
 	 * @author 作者： liuyun
 	 * @date 日期： 2019年4月24日
 	 */
-	@PostMapping(value = "/add{className}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/add${className}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ApiOperation(value = "03.插入信息", httpMethod = "POST")
 	@ResponseBody
-	public boolean add{className}(List<{className}VO> list) {
+	public Result add${className}(List<${className}VO> list) {
 		boolean result=${classNameLower}Service.insert(list);
 		return Result.success(result);
 	}
@@ -98,10 +99,10 @@ public class ${className}Controller extends AbstractBaseController {
 	 * @author 作者： liuyun
 	 * @date 日期： 2019年4月24日
 	 */
-	@PostMapping(value = "/update{className}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/update${className}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ApiOperation(value = "04.修改信息", httpMethod = "POST")
 	@ResponseBody
-	public boolean update{className}(List<{className}VO> list) {
+	public Result update${className}(List<${className}VO> list) {
 		boolean result=${classNameLower}Service.update(list);
 		return Result.success(result);
 	}
@@ -112,11 +113,12 @@ public class ${className}Controller extends AbstractBaseController {
 	 * @author 作者： liuyun
 	 * @date 日期： 2019年4月24日
 	 */
-	@PostMapping(value = "/delete{className}ByIds", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/delete${className}ByIds", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ApiOperation(value = "05.根据id批量删除信息", httpMethod = "POST")
 	@ResponseBody
-	public boolean delete{className}ByIds(List<Long> ids) {
-		boolean result=${classNameLower}Service.deleteByIds(ids);
+	public Result delete${className}ByIds(List<Long> ids) {
+		List<Serializable> list = new ArrayList<>(ids);
+		boolean result=${classNameLower}Service.deleteByIds(list);
 		return Result.success(result);
 	}
 }
