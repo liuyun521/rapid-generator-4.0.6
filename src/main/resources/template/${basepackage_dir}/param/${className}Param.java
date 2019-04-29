@@ -19,7 +19,11 @@ import lombok.Setter;
 public class ${className}Param extends AbstractBaseParam{
 	
 	<#list table.notPkColumns as column>
-	<#if column.columnNameLower!='createId'&&column.columnNameLower!='createDate'&&column.columnNameLower!='createDate'&&column.columnNameLower!='updateId'&&column.columnNameLower!='updateDate'&&column.columnNameLower!='deleteFlat'&&column.columnNameLower!='orderNum'>
+	<#if column.columnNameLower!='createId'&&column.columnNameLower!='createDate'
+	&&column.columnNameLower!='createDate'&&column.columnNameLower!='updateId'
+	&&(column.sqlTypeName!='BIGINT'&&column.sqlTypeName!='TINYINT'&&column.sqlTypeName!='INT')
+	&&column.columnNameLower!='updateDate'&&column.columnNameLower!='deleteFlat'&&column.columnNameLower!='orderNum'>
+	
 	/**
 	* ${column.columnNameLower}
 	**/

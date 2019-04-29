@@ -15,8 +15,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 <mapper namespace="${basepackage}.core.dao.system.${className}Dao">
 
 	<resultMap id="${className}Map" type="${basepackage}.domain.model.system.${className}VO">
-        <#list table.columns as column>
-        <result property="${column.columnNameLower}" column="${column.sqlName}" jdbcType="${column.sqlTypeName}"/>
+        <#list table.pkColumns as column>
+        <id property="${column.columnNameLower}" column="${column.sqlName}" />
+		</#list>
+        <#list table.notPkColumns as column>
+        <result property="${column.columnNameLower}" column="${column.sqlName}" />
 		</#list>
 	</resultMap>
 	
@@ -31,9 +34,15 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<sql id="where">
         <where>
            <#list table.columns as column>
+           <#if column.columnNameLower!='createId'&&column.columnNameLower!='createDate'
+			&&column.columnNameLower!='createDate'&&column.columnNameLower!='updateId'
+			&&(column.sqlTypeName!='BIGINT'&&column.sqlTypeName!='TINYINT'&&column.sqlTypeName!='INT')
+			&&column.columnNameLower!='updateDate'&&column.columnNameLower!='deleteFlat'&&column.columnNameLower!='orderNum'>
+			
            	<if test="${column.columnNameFirstLower} neq null">
                 AND ${column.sqlName} = <@mapperEl column.columnNameFirstLower/>
             </if>
+            </#if>
            </#list>            
         </where>
     </sql>
@@ -60,7 +69,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<!-- 根据查询参数分页获取数据集合 -->
 	<select id="findPageByParam" resultMap="${className}Map">
         SELECT
-            <include refid="columns" />
+            <include refid="allColumns" />
         FROM
             ${table.sqlName} 
         <include refid="where"/>
