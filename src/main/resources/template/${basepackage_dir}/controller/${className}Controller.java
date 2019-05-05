@@ -52,7 +52,7 @@ public class ${className}Controller extends AbstractBaseController {
 	 * @author 作者： liuyun
 	 * @date 日期： 2019年4月28日
 	 */
-	@GetMapping(value = "/get${className}ById", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@GetMapping(value = "/get${className}ById")
 	@ApiOperation(value = "01.根据唯一id获取实体对象", httpMethod = "GET")
 	@ResponseBody
 	public Result get${className}ById(Long id) {
@@ -71,7 +71,7 @@ public class ${className}Controller extends AbstractBaseController {
 	 * @author 作者： liuyun
 	 * @date 日期： 2019年4月24日
 	 */
-	@PostMapping(value = "/find${className}PageByParam", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/find${className}PageByParam")
 	@ApiOperation(value = "02.根据查询参数获取所有数据", httpMethod = "POST")
 	@ResponseBody
 	public Result find${className}PageByParam(${className}Param param){
@@ -85,7 +85,7 @@ public class ${className}Controller extends AbstractBaseController {
 	 * @author 作者： liuyun
 	 * @date 日期： 2019年4月24日
 	 */
-	@PostMapping(value = "/add${className}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/add${className}")
 	@ApiOperation(value = "03.插入信息", httpMethod = "POST")
 	@ResponseBody
 	public Result add${className}(List<${className}VO> list) {
@@ -99,7 +99,7 @@ public class ${className}Controller extends AbstractBaseController {
 	 * @author 作者： liuyun
 	 * @date 日期： 2019年4月24日
 	 */
-	@PostMapping(value = "/update${className}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/update${className}")
 	@ApiOperation(value = "04.修改信息", httpMethod = "POST")
 	@ResponseBody
 	public Result update${className}(List<${className}VO> list) {
@@ -113,7 +113,7 @@ public class ${className}Controller extends AbstractBaseController {
 	 * @author 作者： liuyun
 	 * @date 日期： 2019年4月24日
 	 */
-	@PostMapping(value = "/delete${className}ByIds", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/delete${className}ByIds")
 	@ApiOperation(value = "05.根据id批量删除信息", httpMethod = "POST")
 	@ResponseBody
 	public Result delete${className}ByIds(List<Long> ids) {

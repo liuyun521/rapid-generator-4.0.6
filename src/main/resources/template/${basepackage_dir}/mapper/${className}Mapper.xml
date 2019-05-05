@@ -39,8 +39,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			&&(column.sqlTypeName!='BIGINT'&&column.sqlTypeName!='TINYINT'&&column.sqlTypeName!='INT')
 			&&column.columnNameLower!='updateDate'&&column.columnNameLower!='deleteFlat'&&column.columnNameLower!='orderNum'>
 			
-           	<if test="${column.columnNameFirstLower} neq null">
-                AND ${column.sqlName} = <@mapperEl column.columnNameFirstLower/>
+           	<if test="param.${column.columnNameFirstLower} neq null and param.${column.columnNameFirstLower} neq ''">
+                AND ${column.sqlName} = param.${column.columnNameFirstLower}
             </if>
             </#if>
            </#list>            
