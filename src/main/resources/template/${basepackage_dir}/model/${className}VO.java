@@ -29,7 +29,7 @@ public class ${className}VO extends AbstractBaseVO {
 	<#if column.sqlTypeName=='VARCHAR'||column.sqlTypeName=='CHAR'>
 	@Length(max=${column.size})
 	</#if>
-	@ApiModelProperty(value = "${column.columnNameLower}", position = ${column_index?if_exists+1} <#if column.sqlTypeName=='BIGINT'||column.sqlTypeName=='TINYINT'||column.sqlTypeName=='INT'>,example="-1"</#if>)
+	@ApiModelProperty(value = "${column.columnNameLower}", position = ${column_index?if_exists+1})
 	private <#if column.sqlTypeName=='VARCHAR'||column.sqlTypeName=='CHAR'>String<#elseif column.sqlTypeName=='BIGINT'>Long<#elseif column.sqlTypeName=='DATETIME'>Date<#elseif column.sqlTypeName=='TINYINT'||column.sqlTypeName=='INT'>Integer<#else>Object</#if> ${column.columnNameLower};
 	</#if>
 	</#list>
